@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
-  base: '/cricket-soccer-quiz/',   // GitHub Pages: praveenpuligilla-create
+  base: '/reyansh/',
   plugins: [
     react(),
     VitePWA({

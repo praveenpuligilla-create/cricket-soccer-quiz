@@ -1,5 +1,7 @@
 import './SportBackground.css'
 
+const base = import.meta.env.BASE_URL
+
 /* ─────────────────────────────────────────────────────────
    HOW TO ADD REAL PHOTOS:
    Save these 4 image files anywhere in the public folder:
@@ -39,7 +41,7 @@ function CricketBackground() {
   return (
     <div className="sport-bg cricket-bg">
       <PlayerPanel
-        src="/players/kohli.jpg"
+        src={`${base}players/kohli.jpg`}
         alt="Virat Kohli"
         name="VIRAT KOHLI"
         number="#18"
@@ -49,7 +51,7 @@ function CricketBackground() {
         fallbackEmoji="🏏"
       />
       <PlayerPanel
-        src="/players/tendulkar.jpg"
+        src={`${base}players/tendulkar.jpg`}
         alt="Sachin Tendulkar"
         name="SACHIN TENDULKAR"
         number="#10"
@@ -67,7 +69,7 @@ function SoccerBackground() {
   return (
     <div className="sport-bg soccer-bg">
       <PlayerPanel
-        src="/players/ronaldo.jpg"
+        src={`${base}players/ronaldo.jpg`}
         alt="Cristiano Ronaldo"
         name="C. RONALDO"
         number="#7"
@@ -77,7 +79,7 @@ function SoccerBackground() {
         fallbackEmoji="⚽"
       />
       <PlayerPanel
-        src="/players/chhetri.jpg"
+        src={`${base}players/chhetri.jpg`}
         alt="Sunil Chhetri"
         name="SUNIL CHHETRI"
         number="#11"
