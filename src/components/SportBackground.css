@@ -1,0 +1,224 @@
+/* ── Root layer — fixed, behind app content ── */
+.sport-bg-root {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.sport-transition {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+.sport-transition.visible {
+  opacity: 1;
+}
+
+/* ── Sport wrapper: sets the background color ── */
+.sport-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.cricket-bg {
+  background: linear-gradient(135deg,
+    #001a80 0%,
+    #0033cc 30%,
+    #3300aa 70%,
+    #1a0066 100%);
+}
+
+.soccer-bg {
+  background: linear-gradient(135deg,
+    #880000 0%,
+    #cc0022 30%,
+    #440066 60%,
+    #0011aa 100%);
+}
+
+/* ══════════════════════════
+   PLAYER PANELS
+══════════════════════════ */
+.player-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 36%;
+  overflow: hidden;
+}
+
+.player-panel-left  { left: 0; }
+.player-panel-right { right: 0; }
+
+/* Colored glow behind each player */
+.player-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 90% at 50% 60%,
+    var(--glow) 0%,
+    transparent 70%
+  );
+  opacity: 0.45;
+  z-index: 0;
+  filter: blur(20px);
+}
+
+/* ── Photo wrapper fills the panel ── */
+.player-photo-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.player-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: saturate(1.15) brightness(0.92) contrast(1.05);
+  display: block;
+}
+
+/*
+  Fade the photo toward the center (right edge of left panel,
+  left edge of right panel) and toward the bottom.
+  mask-image creates a smooth transparent edge.
+*/
+.player-panel-left .player-photo {
+  -webkit-mask-image:
+    linear-gradient(to right,  black 35%, transparent 92%),
+    linear-gradient(to top,    transparent 0%, black 16%);
+  mask-image:
+    linear-gradient(to right,  black 35%, transparent 92%),
+    linear-gradient(to top,    transparent 0%, black 16%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.player-panel-right .player-photo {
+  -webkit-mask-image:
+    linear-gradient(to left,   black 35%, transparent 92%),
+    linear-gradient(to top,    transparent 0%, black 16%);
+  mask-image:
+    linear-gradient(to left,   black 35%, transparent 92%),
+    linear-gradient(to top,    transparent 0%, black 16%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+/* ── Fallback shown when the image file is missing ── */
+.player-fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  z-index: 0; /* behind real photo if it loads */
+  opacity: 0.18;
+}
+
+.fallback-emoji {
+  font-size: 6rem;
+  line-height: 1;
+}
+
+.fallback-name {
+  font-size: 1rem;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* ── Player name card ── */
+.player-info {
+  position: absolute;
+  bottom: 1.25rem;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.player-info-left  { left: 1rem;  align-items: flex-start; }
+.player-info-right { right: 1rem; align-items: flex-end; }
+
+.player-badge-num {
+  font-size: 2.8rem;
+  font-weight: 900;
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  color: var(--glow);
+  line-height: 1;
+  text-shadow:
+    0 0 20px var(--glow),
+    0 0 40px var(--glow),
+    0 2px 4px rgba(0,0,0,0.8);
+  letter-spacing: -0.02em;
+}
+
+.player-badge-name {
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 0.12em;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.9), 0 0 14px rgba(0,0,0,0.7);
+  font-family: 'Impact', 'Arial Black', sans-serif;
+}
+
+.player-badge-country {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--glow);
+  letter-spacing: 0.18em;
+  opacity: 0.85;
+  text-shadow: 0 0 10px var(--glow);
+}
+
+/* ══════════════════════════
+   CENTER OVERLAY
+   Darkens only the middle area where quiz cards sit,
+   leaving the player sides bright
+══════════════════════════ */
+.sport-bg-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.cricket-overlay {
+  background: radial-gradient(
+    ellipse 40% 70% at 50% 50%,
+    rgba(0, 6, 40, 0.82) 0%,
+    rgba(0, 6, 40, 0.55) 38%,
+    rgba(0, 6, 40, 0.12) 65%,
+    transparent 100%
+  );
+}
+
+.soccer-overlay {
+  background: radial-gradient(
+    ellipse 40% 70% at 50% 50%,
+    rgba(15, 0, 25, 0.82) 0%,
+    rgba(15, 0, 25, 0.55) 38%,
+    rgba(15, 0, 25, 0.12) 65%,
+    transparent 100%
+  );
+}
+
+/* ── Responsive: on narrow screens, hide panels (players would overlap quiz) ── */
+@media (max-width: 700px) {
+  .player-panel {
+    width: 100%;
+    opacity: 0.18;
+  }
+  .player-info { display: none; }
+  .player-panel::before { opacity: 0.6; }
+}

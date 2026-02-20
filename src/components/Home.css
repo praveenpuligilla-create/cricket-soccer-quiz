@@ -1,0 +1,173 @@
+.home {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.home-header {
+  text-align: center;
+}
+
+.home-icons {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5rem;
+}
+
+.home-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #4ade80, #60a5fa, #f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.25rem;
+}
+
+.home-subtitle {
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+.home-card {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.section-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #94a3b8;
+  margin-bottom: 0.75rem;
+}
+
+.sport-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.sport-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 1.25rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  color: #f0f0f0;
+  transition: all 0.2s ease;
+}
+
+.sport-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.sport-btn.selected {
+  background: rgba(96, 165, 250, 0.15);
+  border-color: #60a5fa;
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.2);
+}
+
+.sport-emoji {
+  font-size: 2.25rem;
+}
+
+.sport-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.sport-desc {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-align: center;
+}
+
+.diff-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.diff-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  color: #f0f0f0;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.diff-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--diff-color);
+}
+
+.diff-btn.selected {
+  background: color-mix(in srgb, var(--diff-color) 15%, transparent);
+  border-color: var(--diff-color);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--diff-color) 30%, transparent);
+}
+
+.diff-label {
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 70px;
+}
+
+.diff-desc {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.start-btn {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.875rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.start-btn.active {
+  background: linear-gradient(135deg, #4ade80, #60a5fa);
+  color: #0f0f1a;
+  box-shadow: 0 4px 20px rgba(74, 222, 128, 0.3);
+}
+
+.start-btn.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(74, 222, 128, 0.4);
+}
+
+.start-btn.disabled {
+  background: rgba(255, 255, 255, 0.08);
+  color: #4a5568;
+  cursor: not-allowed;
+}
+
+.home-footer {
+  color: #4a5568;
+  font-size: 0.8rem;
+  text-align: center;
+}
