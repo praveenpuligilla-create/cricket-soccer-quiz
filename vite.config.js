@@ -9,8 +9,8 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       manifest: {
-        name: 'Cricket & Soccer Quiz',
-        short_name: 'Sports Quiz',
+        name: 'Reyanshfirstproject',
+        short_name: 'Reyanshfirstproject',
         description: 'A fun trivia quiz game for Cricket and Soccer fans!',
         theme_color: '#1a1a2e',
         background_color: '#1a1a2e',
